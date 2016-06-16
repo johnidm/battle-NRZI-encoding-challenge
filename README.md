@@ -10,6 +10,8 @@ More info about NRZI:
 * http://www.interfacebus.com/NRZ_Definition.html
 * https://www.youtube.com/watch?v=Kxndom8GaUQ
 
+For exempale: input physical signals `_|¯¯|____|¯|_|¯¯|_` output binary signals `010100011101`
+
 ##### Setup project
 
 ```
