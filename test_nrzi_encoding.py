@@ -6,11 +6,13 @@ from nrzi_encoding import nrzi
 class TestNRZIEncoding(unittest.TestCase):
 
     def test_encoding(self):
-        _expected = ('010010000100111', '010110010', '010011000110')
-        _input = ('¯|___|¯¯¯¯¯|___|¯|_|¯', '¯|__|¯|___|¯¯', '_|¯¯¯|_|¯¯¯¯|_|¯¯')
-        
+        _expected = (
+            '010010000100111', '010110010', '010011000110', '010100011101')
+        _input = ('¯|___|¯¯¯¯¯|___|¯|_|¯', '¯|__|¯|___|¯¯',
+                  '_|¯¯¯|_|¯¯¯¯|_|¯¯', '_|¯¯|____|¯|_|¯¯|_')
+
         for _in, _out in zip(_input, _expected):
-            self.assertEqual(nrzi(_in), _out) 
+            self.assertEqual(nrzi(_in), _out)
 
     def test_encoding_one_singal(self):
         self.assertEqual(nrzi('_'), '0')
