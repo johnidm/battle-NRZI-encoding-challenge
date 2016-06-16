@@ -1,5 +1,14 @@
 def nrzi(transmisson: str) -> str:
 
+    """
+    This method mapping a physical signal to a binary signal for transmission media. 
+    The two level NRZI signal has a transition at a clock boundary if the bit being transmitted is a logical 1, 
+    and does not have a transition if the bit being transmitted is a logical 0.
+    
+    :param physical_signals: The physical signals for transmission.
+    :returns: Set of binary signal that represetation a physical signal.
+    """
+    
     def check_health() -> None:
         
         if not transmisson:
