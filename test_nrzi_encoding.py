@@ -31,13 +31,16 @@ class TestNRZIEncoding(unittest.TestCase):
             nrzi('|')
 
         self.assertEqual(
-            str(ex.exception), 'Physical signal | does not start with high or low signal')
+            str(ex.exception),
+            'Physical signal | does not start with high or low signal')
 
     def test_econding_transmission_invalid_signal_invalid(self):
         with self.assertRaises(Exception) as ex:
             nrzi('¯|_#__|¯¯¯¯¯|___')
 
-        self.assertEqual(str(ex.exception), 'Token # is invalid int physical signal segment')
+        self.assertEqual(
+            str(ex.exception),
+            'Token # is invalid int physical signal segment')
 
 
 if __name__ == "__main__":

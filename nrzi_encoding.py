@@ -1,8 +1,10 @@
 def nrzi(physical_signal: str) -> str:
     """
-    This method mapping a physical signal to a binary signal for transmission media. 
-    The two level NRZI signal has a transition at a clock boundary if the bit being transmitted is a logical 1, 
-    and does not have a transition if the bit being transmitted is a logical 0.
+    This method mapping a physical signal to a binary signal
+    for transmission media. The two level NRZI signal has a
+    transition at a clock boundary if the bit being transmitted
+    is a logical 1, and does not have a transition if the bit
+    being transmitted is a logical 0.
 
     :param physical_signals: The physical signals for transmission.
     :returns: Set of binary signal that represetation a physical signal.
@@ -14,7 +16,7 @@ def nrzi(physical_signal: str) -> str:
     pipe_signal = '|'
 
     # Get a bool bit
-    give_bit = lambda λ: str((0, 1)[λ])
+    def give_bit(λ): return str((0, 1)[λ])
 
     def check_health() -> None:
         # Check validators on physical signal
@@ -25,12 +27,14 @@ def nrzi(physical_signal: str) -> str:
         for token in physical_signal:
             if token not in [low_signal, high_signal, pipe_signal]:
                 raise Exception(
-                    'Token {} is invalid int physical signal segment'.format(token))
+                    'Token {} is invalid int physical signal segment'.
+                    format(token))
 
         if physical_signal[0] not in [low_signal, high_signal]:
             # Validate high and low signal
             raise Exception(
-                'Physical signal {} does not start with high or low signal'.format(physical_signal[0]))
+                'Physical signal {} does not start with high or low signal'.
+                format(physical_signal[0]))
 
     check_health()
 
