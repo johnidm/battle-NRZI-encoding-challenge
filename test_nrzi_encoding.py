@@ -21,10 +21,23 @@ class TestNRZIEncoding(unittest.TestCase):
         self.assertEqual(nrzi('¯|'), '0')
 
     def test_econding_transmission_empty(self):
-        pass
+        with self.assertRaises(Exception) as ex:
+            nrzi('')
+
+        self.assertEqual(str(ex.exception), 'Physical signal is empty')
 
     def test_econding_transmission_first_signal_invalid(self):
-        pass
+        with self.assertRaises(Exception) as ex:
+            nrzi('|')
+
+        self.assertEqual(
+            str(ex.exception), 'Physical signal | does not start with high or low signal')
+
+    def test_econding_transmission_invalid_signal_invalid(self):
+        with self.assertRaises(Exception) as ex:
+            nrzi('¯|_#__|¯¯¯¯¯|___')
+
+        self.assertEqual(str(ex.exception), 'Token # is invalid int physical signal segment')
 
 
 if __name__ == "__main__":
