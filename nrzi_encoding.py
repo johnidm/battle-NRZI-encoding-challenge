@@ -15,6 +15,8 @@ def nrzi(physical_signal: str) -> str:
     low_signal = '_'
     pipe_signal = '|'
 
+    print("Init")
+
     # Get a bool bit
     def give_bit(λ): return str((0, 1)[λ])
 
